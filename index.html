@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Log in</title>
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/framework.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&#038;display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="page center-flex">
+      <div class="login w-100 h-100 bg-blue">
+        <h2 class="m-0 txt-c">Log in</h2>
+        <p class="txt-c fs-14 m-0 mt-10 mb-20 lh-1_6 c-grey">
+          This page is a simulation of the login page for demonstration purposes
+          only.
+        </p>
+        <form>
+          <input
+            type="text"
+            class="d-block fs-15 w-full mb-15 pt-10 pb-10 pl-15 pr-15 rad-6 border-ccc bg-secondary"
+            placeholder="Enter Email / Phone No"
+          />
+          <div class="password-div p-relative">
+            <input
+              data-passState="hide"
+              type="password"
+              name="user-pass"
+              class="d-block fs-15 w-full pt-10 pb-10 pl-15 pr-15 rad-6 border-ccc bg-secondary"
+              placeholder="Password"
+            />
+            <div
+              class="pass-state p-absolute top-half right-15 t-ty-mhalf c-blue cursor-pointer"
+            >
+              <i class="fa-regular fa-eye-slash"></i>
+            </div>
+          </div>
+
+          <div class="help d-flex space-between mt-20">
+            <div class="remember-me d-flex align-center">
+              <input type="checkbox" id="six" class="appearance-none" />
+              <label
+                for="six"
+                class="pl-25 fs-14 cursor-pointer p-relative select-none"
+                >Remember me</label
+              >
+            </div>
+            <a href="#" class="fs-13 c-blue">Forget Password</a>
+          </div>
+          <input
+            type="submit"
+            value="Sign in"
+            class="d-block w-full b-none p-10 txt-c bg-blue c-white fs-17 rad-8 mt-25 cursor-pointer"
+          />
+        </form>
+        <a href="#" class="border-ccc mt-10 p-5 rad-8 txt-c d-flex center-flex">
+          <i class="fa-brands fa-google fs-25 mr-10 c-blue"></i>
+          <span class="fs-14 c-black">Sign in with Google</span>
+        </a>
+        <div class="registration txt-c mt-15 mb-20 fs-13">
+          Do not have an account?
+          <a href="#" class="c-blue">Sign up</a>
+        </div>
+        <a href="dashboard.html" class="skip c-blue fs-15 d-block txt-right mt-50">
+          Skip Log in
+          <i class="fa-solid fa-arrow-right-long "></i>
+        </a>
+      </div>
+    </div>
+    <script>
+      let passInput = document.querySelector(".login input[type=password]");
+      let passIcon = document.querySelector(".login .pass-state i");
+
+      passIcon.addEventListener("click", () => {
+        if (passInput.getAttribute("data-passState") === "hide") {
+          passInput.type = "text";
+          passIcon.className = "fa-regular fa-eye";
+          passInput.setAttribute("data-passState", "show");
+        } else {
+          passInput.type = "password";
+          passIcon.className = "fa-regular fa-eye-slash";
+          passInput.setAttribute("data-passState", "hide");
+        }
+      });
+    </script>
+  </body>
+</html>
